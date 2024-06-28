@@ -1,42 +1,26 @@
-import React, { useState, useEffect } from 'react';
+// src/components/Layout/Search.js
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { searchMovies } from '../../services/tmdb';
 import './Search.css'; 
-import moviesData from '../../components/Movies/movies.json';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
-  // Limpiar búsqueda cuando el componente se monte
-  useEffect(() => {
-    setSearchTerm('');
-    setResults([]);
-  }, []);
-
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
-    const searchQuery = searchTerm.toLowerCase();
-  
-    const filteredMovies = moviesData.filter(movie => {
-      const title = movie.title ? movie.title.toLowerCase() : '';
-      const genre = movie.genre ? movie.genre.toLowerCase() : '';
-      const description = movie.description ? movie.description.toLowerCase() : '';
-      const director = movie.director ? movie.director.toLowerCase() : '';
-      const actorMatch = movie.actors && movie.actors.some(actor => actor && actor.toLowerCase().includes(searchQuery));
-  
-      return title.includes(searchQuery) ||
-             genre.includes(searchQuery) ||
-             description.includes(searchQuery) ||
-             actorMatch ||
-             director.includes(searchQuery);
-    });
-  
-    setResults(filteredMovies);
+    try {
+      const results = await searchMovies(searchTerm);
+      setResults(results);
+    } catch (error) {
+      console.error('Error searching movies:', error);
+    }
   };
 
   const handleMovieClick = (movieId) => {
@@ -46,7 +30,7 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className="search-page">
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -59,11 +43,10 @@ function Search() {
       <div className="results-container">
         {results.map(movie => (
           <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
-            <img src={movie.poster} alt={movie.title} className="movie-poster" />
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster" />
             <div className="movie-info">
               <h4>{movie.title}</h4>
-              <p>{movie.genre} - Directed by {movie.director}</p>
-              <p>Starring: {movie.actors.join(', ')}</p>
+              <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
             </div>
           </div>
         ))}

@@ -1,12 +1,15 @@
 // src/components/Auth/LoginForm.js
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useAuth } from '../../contexts/AuthContext';
 import { loginUser } from '../../services/api';
 import './LoginForm.css';
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { login } = useAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -14,9 +17,16 @@ function LoginForm({ onLogin }) {
     try {
       const response = await loginUser({ email: username, password });
       console.log('Login successful', response);
+      login(response.token);
       onLogin(response.token);
+      setError(''); // Clear any previous errors
     } catch (error) {
       console.error('Login failed', error);
+      if (error.response && error.response.data) {
+        setError(error.response.data.message); // Set specific error message
+      } else {
+        setError('Login failed. Please try again.'); // Set a generic error message
+      }
     }
   };
 
@@ -30,11 +40,12 @@ function LoginForm({ onLogin }) {
         <label>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <div className="forgot-password">
-          <button type="button" onClick={() => alert('Funcionalidad de recuperación de contraseña aún no implementada.')}>
+          <button type="button" onClick={() => alert('Password recovery function not yet available.')}>
             ¿Olvidaste la contraseña?
           </button>
         </div>
       </div>
+      {error && <p className="error">{error}</p>} {/* Mostrar mensaje de error */}
       <button type="submit">Login</button>
     </form>
   );

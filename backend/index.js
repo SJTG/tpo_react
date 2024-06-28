@@ -3,14 +3,14 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const listsRoutes = require('./routes/lists');
 const cors = require('cors');
-require('dotenv').config(); // Cargar las variables de entorno
+require('dotenv').config();
 
 const app = express();
 
 connectDB();
 
 app.use(cors({
-  origin: 'http://localhost:3000' // Permitir solicitudes desde el frontend en el puerto 3000
+  origin: 'http://localhost:3000',
 }));
 app.use(express.json());
 

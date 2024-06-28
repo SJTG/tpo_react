@@ -1,6 +1,8 @@
-/* Search.css */
 .results-container {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movie-result {
@@ -11,6 +13,7 @@
   border: 1px solid #ccc;
   padding: 10px;
   transition: background-color 0.2s ease-in-out;
+  width: 80%; /* Ajuste el ancho de las tarjetas de resultados */
 }
 
 .movie-result:hover {
@@ -18,8 +21,9 @@
 }
 
 .movie-poster {
-  width: 100px;
+  width: 350px;
   height: auto;
+  object-fit: cover; /* esto asegura que la imagen cubra completamente el área sin distorsionarse */
   margin-right: 20px;
 }
 
@@ -31,15 +35,41 @@
   margin: 5px 0;
 }
 
+.search-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Asegura que el contenido esté centrado verticalmente */
+  text-align: center;
+}
 
-div form input {
+.search-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-page form input {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
+  margin-bottom: 10px; /* Espacio entre el input y el botón */
 }
 
-.submit {
-  color: RED;
+.search-page form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-page form button:hover {
+  background-color: #555;
 }

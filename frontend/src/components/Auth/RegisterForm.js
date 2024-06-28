@@ -15,7 +15,7 @@ function RegisterForm({ onRegister }) {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      setError('Las contraseñas no coinciden');
+      setError('The passwords dont match');
       return;
     }
 
@@ -23,16 +23,21 @@ function RegisterForm({ onRegister }) {
       const response = await registerUser({ username, email, password });
       console.log('Registro exitoso', response);
       onRegister(response.token);
+      setError(''); // Clear any previous errors
     } catch (error) {
       console.error('Error en el registro', error);
-      setError('Error en el registro. Por favor, inténtalo de nuevo.');
+      if (error.response && error.response.data) {
+        setError(error.response.data.message); // Set specific error message
+      } else {
+        setError('Error, please try again.'); // Set a generic error message
+      }
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="register-form">
       <h2>Registro</h2>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error}</p>} {/* Mostrar mensaje de error */}
       <div>
         <label>Nombre de Usuario:</label>
         <input type="text" value={username} onChange={e => setUsername(e.target.value)} required />
