@@ -1,0 +1,67 @@
+.myListsPage {
+  max-width: 600px;
+  height: 600px;
+  background-color: white;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center; /* Center the text content horizontally */
+}
+
+.myListsPage h1,
+.myListsPage h2 {
+  text-align: center;
+}
+
+.myListsPage > div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.myListsPage > div > button {
+  margin: 5px 5px; /* Adjust margin as needed */
+}
+
+.myListsPage ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.myListsPage ul li {
+  margin-bottom: 10px;
+}
+
+.myListsPage button {
+  margin-right: 10px;
+}
+
+.myListsPage > button {
+  display: inline-block;
+  margin: 5px 5px;
+}
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+button:hover {
+    background-color: darkorange;
+  }
+  
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+li {
+    margin: 10px 0;
+    padding: 10px;
+    
+    border-radius: 5px;
+  }

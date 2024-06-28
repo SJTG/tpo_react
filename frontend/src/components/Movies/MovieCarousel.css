@@ -1,0 +1,42 @@
+.movie-card {
+  width: 100px;  /* Reducción adicional del ancho */
+  height: 450px; /* Reducción adicional de la altura */
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6); /* Sombra naranja */
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px; /* Aumentar el espacio entre tarjetas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer; /* Asegura que el cursor indique que es clickeable */
+  transition: transform 0.2s ease-in-out; /* Transición suave para el hover */
+}
+
+.movie-card:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.8); /* Sombra más prominente en hover */
+}
+
+.movie-image {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+}
+
+.movie-title {
+  padding: 5px 0;
+  font-weight: 800;
+  font-size: 20px; /* Tamaño aumentado del texto para mejor legibilidad */
+  color: #333;
+  height: 15%; /* Ajuste de espacio asignado al título */
+}
+
+.movie-carousel {
+  background-color: rgba(255, 69, 0, 0.05);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}

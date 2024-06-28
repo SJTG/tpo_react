@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/*nada de esto funciona lol */
+
+body {
+  background-color: black; /* Color de fondo naranja */
+  color: #ff410a; /* Texto en color negro */
+  font-family: Arial, sans-serif; /* Tipografía genérica, puedes cambiarla por una de tu preferencia */
+  font-weight: 800;
+}
+
+
+a {
+  color: orange;
+  text-decoration: none; 
+}
+
+a:hover {
+  color: darkorange; /* Cambio sutil en el color al pasar el ratón */
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.lists-page {
+  padding: 20px;
+  margin: auto;
+  max-width: 800px; 
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

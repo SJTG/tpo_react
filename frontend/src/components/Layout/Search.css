@@ -1,0 +1,45 @@
+/* Search.css */
+.results-container {
+  margin-top: 20px;
+}
+
+.movie-result {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.movie-result:hover {
+  background-color: #f0f0f0;
+}
+
+.movie-poster {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.movie-info h4 {
+  margin: 0;
+}
+
+.movie-info p {
+  margin: 5px 0;
+}
+
+
+div form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.submit {
+  color: RED;
+}
