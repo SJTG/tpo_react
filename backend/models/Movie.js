@@ -1,13 +1,27 @@
-// backend/models/Movie.js
+// models/Movie.js
 const mongoose = require('mongoose');
 
 const MovieSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    genre: { type: String, required: true },
-    description: { type: String, required: true },
-    poster: { type: String, required: true },
-    actors: [String],
-    director: { type: String, required: true }
+  id: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  poster_path: {
+    type: String,
+    required: true
+  },
+  overview: {
+    type: String,
+    required: true
+  },
+  genre_ids: [Number]
 });
 
-module.exports = mongoose.model('Movie', MovieSchema);
+const Movie = mongoose.model('Movie', MovieSchema);
+
+module.exports = Movie;

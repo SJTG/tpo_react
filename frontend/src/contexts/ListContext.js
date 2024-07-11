@@ -1,3 +1,4 @@
+// src/contexts/ListContext.js
 import React, { createContext, useState, useContext } from 'react';
 
 const ListContext = createContext();
@@ -8,22 +9,13 @@ export function useLists() {
 
 export const ListProvider = ({ children }) => {
   const [lists, setLists] = useState({
-    Favoritas: [],
-    Vistas: [],
-    Porver: []  // Cambiado a 'Por ver' para consistencia
+    favoritas: [],
+    vistas: [],
+    porVer: []
   });
 
-  const addToList = (movie, listType) => {
-    if (!lists[listType]) {
-      console.error(`List type '${listType}' does not exist.`);
-      return;
-    }
-    const newList = [...lists[listType], { id: movie.id, title: movie.title }];
-    setLists(prevLists => ({ ...prevLists, [listType]: newList }));
-  };
-
   return (
-    <ListContext.Provider value={{ lists, setLists, addToList }}>
+    <ListContext.Provider value={{ lists, setLists }}>
       {children}
     </ListContext.Provider>
   );

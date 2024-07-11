@@ -12,12 +12,14 @@ exports.registerUser = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'This email is already in use' });
-    }
-
     const user = await User.create({ username, email, password });
+
+    // Crear listas base para el usuario
+    user.favoritas = [];
+    user.vistas = [];
+    user.porVer = [];
+    await user.save();
+
     res.status(201).json({
       _id: user._id,
       username: user.username,
@@ -34,10 +36,6 @@ exports.loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: 'No account found with this username' });
-    }
-
     if (user && (await user.matchPassword(password))) {
       res.json({
         _id: user._id,

@@ -1,11 +1,15 @@
 // controllers/listsController.js
-const MovieList = require('../models/MovieList');
+const User = require('../models/User');
+const Movie = require('../models/Movie');
 
 exports.getUserLists = async (req, res) => {
   try {
-    const lists = await MovieList.findOne({ user: req.user._id });
-    console.log("hola")
-    res.json(lists);
+    const user = await User.findById(req.user._id).populate('favoritas vistas porVer');
+    res.json({
+      favoritas: user.favoritas,
+      vistas: user.vistas,
+      porVer: user.porVer
+    });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -15,15 +19,17 @@ exports.addMovieToList = async (req, res) => {
   const { listType, movie } = req.body;
 
   try {
-    let lists = await MovieList.findOne({ user: req.user._id });
+    const user = await User.findById(req.user._id);
 
-    if (!lists) {
-      lists = new MovieList({ user: req.user._id });
+    const movieDoc = await Movie.findById(movie._id);
+    if (!movieDoc) {
+      await Movie.create(movie);
     }
 
-    lists[listType].push(movie);
-    await lists.save();
-    res.json(lists);
+    user[listType].push(movie._id);
+    await user.save();
+
+    res.json(user[listType]);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -33,15 +39,11 @@ exports.removeMovieFromList = async (req, res) => {
   const { listType, movieId } = req.body;
 
   try {
-    const lists = await MovieList.findOne({ user: req.user._id });
+    const user = await User.findById(req.user._id);
+    user[listType] = user[listType].filter(movie => movie.toString() !== movieId);
+    await user.save();
 
-    if (lists) {
-      lists[listType] = lists[listType].filter(movie => movie.id !== movieId);
-      await lists.save();
-      res.json(lists);
-    } else {
-      res.status(404).json({ message: 'Lists not found' });
-    }
+    res.json(user[listType]);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
