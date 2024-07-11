@@ -1,8 +1,11 @@
 // src/components/Layout/Search.js
 import React, { useState } from 'react';
+import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
 import { searchMovies } from '../../services/tmdb';
-import './Search.css'; 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import './Search.css';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,13 +27,44 @@ function Search() {
   };
 
   const handleMovieClick = (movieId) => {
-    setSearchTerm(''); // Limpiar el campo del buscador
-    setResults([]); // Limpiar los resultados de la búsqueda
+    setSearchTerm(''); // Clear the search field
+    setResults([]); // Clear the search results
     navigate(`/movieDetail/${movieId}`);
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // Number of slides to show at a time
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   return (
-    <div className="search-page">
+    <div>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -41,15 +75,17 @@ function Search() {
         <button type="submit">Buscar</button>
       </form>
       <div className="results-container">
-        {results.map(movie => (
-          <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster" />
-            <div className="movie-info">
-              <h4>{movie.title}</h4>
-              <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
+        <Slider {...settings}>
+          {results.map(movie => (
+            <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
+              <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster" />
+              <div className="movie-info">
+                <h4>{movie.title}</h4>
+                <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </Slider>
       </div>
     </div>
   );

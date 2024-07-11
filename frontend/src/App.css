@@ -13,15 +13,19 @@
   }
 }
 
-/*nada de esto funciona lol */
-
+/* Estilos del body */
 body {
-  background-color: black; /* Color de fondo naranja */
-  color: #ff410a; /* Texto en color negro */
-  font-family: Arial, sans-serif; /* Tipografía genérica, puedes cambiarla por una de tu preferencia */
+  background-color: black; /* Color de fondo */
+  color: #ff410a; /* Texto en color */
+  font-family: Arial, sans-serif; /* Tipografía genérica */
   font-weight: 800;
+  margin: 0; /* Eliminar márgenes por defecto */
+  height: 100%; /* Asegura que el body ocupe toda la altura */
 }
 
+html, body, #root {
+  height: 100%;
+}
 
 a {
   color: orange;
@@ -60,4 +64,24 @@ a:hover {
   to {
     transform: rotate(360deg);
   }
+}
+
+.search-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.search-page-content {
+  flex: 1;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }

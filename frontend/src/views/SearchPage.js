@@ -4,8 +4,8 @@ import Search from '../components/Layout/Search'; // Ruta corregida para el comp
 
 function SearchPage() {
   return (
-    <div>
-      <main className="search-page">
+    <div className="search-page-container">
+      <main className="search-page-content">
         <h1>Search for Movies</h1>
         <Search />
       </main>

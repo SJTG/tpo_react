@@ -4,6 +4,7 @@ const MovieList = require('../models/MovieList');
 exports.getUserLists = async (req, res) => {
   try {
     const lists = await MovieList.findOne({ user: req.user._id });
+    console.log("hola")
     res.json(lists);
   } catch (error) {
     res.status(400).json({ message: error.message });

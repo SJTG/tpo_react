@@ -7,17 +7,26 @@ const MovieListSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  Favoritas: [{
+  favoritas: [{
     id: Number,
     title: String,
+    poster_path: String,
+    overview: String,
+    genre_ids: [Number]
   }],
-  Vistas: [{
+  vistas: [{
     id: Number,
     title: String,
+    poster_path: String,
+    overview: String,
+    genre_ids: [Number]
   }],
   porVer: [{
     id: Number,
     title: String,
+    poster_path: String,
+    overview: String,
+    genre_ids: [Number]
   }]
 });
 

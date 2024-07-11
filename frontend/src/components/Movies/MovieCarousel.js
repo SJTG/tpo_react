@@ -11,17 +11,19 @@ function MovieCarousel() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [genre, setGenre] = useState('All');
+  const [loading, setLoading] = useState(true); // Estado de carga
   const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const results = await searchMovies(''); // Obtener todas las películas
-        console.log('Movies fetched:', results); // Verificar los resultados obtenidos
+        const results = await searchMovies('');
         setMovies(results);
         setFilteredMovies(results);
       } catch (error) {
         console.error('Error fetching movies:', error);
+      } finally {
+        setLoading(false); // Datos cargados, establecer loading a false
       }
     };
     fetchMovies();
@@ -33,14 +35,13 @@ function MovieCarousel() {
     } else {
       setFilteredMovies(movies.filter(movie => movie.genre_ids.includes(parseInt(genre))));
     }
-    console.log('Filtered Movies:', filteredMovies); // Verificar los resultados filtrados
-  }, [genre, movies]);
+  }, [genre, movies]); // No incluir filteredMovies aquí
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5, 
+    slidesToShow: 5, // Number of slides to show at a time
     slidesToScroll: 1,
     responsive: [
       {
@@ -71,8 +72,12 @@ function MovieCarousel() {
     navigate(`/movieDetail/${movieId}`);
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // Muestra un mensaje de carga mientras se obtienen los datos
+  }
+
   return (
-    <div className="movie-carousel">
+    <div>
       <select value={genre} onChange={(e) => setGenre(e.target.value)}>
         <option value="All">All</option>
         <option value="28">Action</option>

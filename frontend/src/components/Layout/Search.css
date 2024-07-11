@@ -1,19 +1,19 @@
+/* src/components/Layout/Search.css */
 .results-container {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .movie-result {
   display: flex;
+  flex-direction: column;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin: 10px; /* Space between the cards */
   border: 1px solid #ccc;
   padding: 10px;
   transition: background-color 0.2s ease-in-out;
-  width: 80%; /* Ajuste el ancho de las tarjetas de resultados */
+  width: 90%; /* Adjust the width of the cards */
+  box-sizing: border-box; /* Include padding and border in the total size */
 }
 
 .movie-result:hover {
@@ -23,16 +23,18 @@
 .movie-poster {
   width: 350px;
   height: auto;
-  object-fit: cover; /* esto asegura que la imagen cubra completamente el área sin distorsionarse */
-  margin-right: 20px;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  margin-bottom: 10px; /* Space between the image and the text */
 }
 
 .movie-info h4 {
   margin: 0;
+  text-align: center;
 }
 
 .movie-info p {
   margin: 5px 0;
+  text-align: center;
 }
 
 .search-page {
@@ -40,7 +42,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* Asegura que el contenido esté centrado verticalmente */
+  min-height: 80vh; /* Ensures the content is centered vertically */
   text-align: center;
 }
 
@@ -56,7 +58,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
-  margin-bottom: 10px; /* Espacio entre el input y el botón */
+  margin-bottom: 10px; /* Space between the input and the button */
 }
 
 .search-page form button {
