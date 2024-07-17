@@ -11,7 +11,7 @@ function Header() {
       <nav>
         <ul className="header-nav">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/search">Search</Link></li> {/* Nueva opción de búsqueda */}
+          <li><Link to="/search">Search</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/register">Register</Link></li>
         </ul>

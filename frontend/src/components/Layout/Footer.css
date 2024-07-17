@@ -1,10 +1,11 @@
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-  }
-  footer p {
-    margin: 0;
-  }
+  background-color: #34495e; /* Updated to Fondo Oscuro */
+  color: #ecf0f1; /* Updated to Texto Primario */
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}

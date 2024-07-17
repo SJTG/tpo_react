@@ -2,25 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Estilos del body */
 body {
-  background-color: black; /* Color de fondo */
-  color: #ff410a; /* Texto en color */
-  font-family: Arial, sans-serif; /* Tipografía genérica */
-  font-weight: 800;
-  margin: 0; /* Eliminar márgenes por defecto */
-  height: 100%; /* Asegura que el body ocupe toda la altura */
+  color: #2c3e50; /* Texto Primario */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
 }
 
 html, body, #root {
@@ -28,16 +14,16 @@ html, body, #root {
 }
 
 a {
-  color: orange;
-  text-decoration: none; 
+  color: #3498db; /* Primario */
+  text-decoration: none;
 }
 
 a:hover {
-  color: darkorange; /* Cambio sutil en el color al pasar el ratón */
+  color: #2980b9; /* Primario oscuro para hover */
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #34495e; /* Fondo Azul Oscuro */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,7 +34,7 @@ a:hover {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #3498db; /* Primario */
 }
 
 .lists-page {
@@ -77,7 +63,7 @@ a:hover {
 }
 
 footer {
-  background-color: #333;
+  background-color: #34495e; /* Fondo Azul Oscuro */
   color: white;
   text-align: center;
   padding: 10px 0;

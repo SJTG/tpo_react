@@ -1,3 +1,4 @@
+// src/components/Layout/ListsManager.js
 import React, { useState, useEffect } from 'react';
 import { useLists } from '../../contexts/ListContext';
 import { removeMovieFromList, getUserLists } from '../../services/api';
@@ -35,7 +36,7 @@ function ListsManager() {
   const handleSaveChanges = async () => {
     try {
       const token = localStorage.getItem('token');
-      const updatedList = await Promise.all(
+      await Promise.all(
         selectedMovies.map((movieId) =>
           removeMovieFromList({ listType: currentList, movieId }, token)
         )
@@ -62,7 +63,7 @@ function ListsManager() {
   };
 
   return (
-    <div className='myListsPage'>
+    <div className='listsPage'>
       <h1>My Lists</h1>
       <h2>{currentList}</h2>
       <div>

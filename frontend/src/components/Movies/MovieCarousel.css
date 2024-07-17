@@ -1,38 +1,38 @@
 /* src/components/Movies/MovieCarousel.css */
-.movie-card {
-  width: 100px;  /* Reducción adicional del ancho */
-  height: 450px; /* Reducción adicional de la altura */
+.movie-card-carousel {
+  width: 100px;
+  height: 450px;
   padding: 5px;
-  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6); /* Sombra naranja */
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6);
   text-align: center;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
-  margin: 10px; /* Aumentar el espacio entre tarjetas */
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  cursor: pointer; /* Asegura que el cursor indique que es clickeable */
-  transition: transform 0.2s ease-in-out; /* Transición suave para el hover */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
-.movie-card:hover {
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
-  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.8); /* Sombra más prominente en hover */
+.movie-card-carousel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.8);
 }
 
-.movie-image {
+.movie-image-carousel {
   width: 100%;
   height: 85%;
   object-fit: cover;
 }
 
-.movie-title {
+.movie-title-carousel {
   padding: 5px 0;
   font-weight: 800;
-  font-size: 20px; /* Tamaño aumentado del texto para mejor legibilidad */
+  font-size: 20px;
   color: #333;
-  height: 15%; /* Ajuste de espacio asignado al título */
+  height: 15%;
 }
 
 .movie-carousel {
@@ -40,4 +40,31 @@
   padding: 20px;
   margin: 20px 0;
   border-radius: 8px;
+}
+
+/* Dropdown styling */
+.select-genre {
+  display: block;
+  width: 200px;
+  margin: 0 auto 20px auto;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #34495e;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  left: 100px; /* Positioned 100px from the left border */
+}
+
+.select-genre:hover {
+  background-color: #bdc3c7;
+}
+
+.select-genre:focus {
+  outline: none;
+  border-color: #3498db;
 }

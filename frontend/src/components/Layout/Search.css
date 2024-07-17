@@ -1,6 +1,12 @@
 /* src/components/Layout/Search.css */
 .results-container {
   margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .movie-result {
@@ -8,33 +14,43 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  margin: 10px; /* Space between the cards */
+  margin: 10px;
   border: 1px solid #ccc;
   padding: 10px;
-  transition: background-color 0.2s ease-in-out;
-  width: 90%; /* Adjust the width of the cards */
-  box-sizing: border-box; /* Include padding and border in the total size */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-in-out;
 }
 
 .movie-result:hover {
-  background-color: #f0f0f0;
+  transform: scale(1.05);
 }
 
-.movie-poster {
-  width: 350px;
+.movie-poster-search {
+  width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  margin-bottom: 10px; /* Space between the image and the text */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.movie-info {
+  text-align: center;
 }
 
 .movie-info h4 {
   margin: 0;
-  text-align: center;
+  font-size: 18px;
+  color: #2c3e50;
 }
 
 .movie-info p {
   margin: 5px 0;
-  text-align: center;
+  font-size: 14px;
+  color: #95a5a6;
 }
 
 .search-page {
@@ -42,7 +58,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* Ensures the content is centered vertically */
+  min-height: 80vh;
   text-align: center;
 }
 
@@ -50,15 +66,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-page form input {
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #bdc3c7;
   border-radius: 5px;
   outline: none;
-  margin-bottom: 10px; /* Space between the input and the button */
+  margin-bottom: 10px;
+  width: 300px;
 }
 
 .search-page form button {
@@ -66,12 +87,40 @@
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #3498db;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
 .search-page form button:hover {
-  background-color: #555;
+  background-color: #2980b9;
+}
+
+.search-page h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+/* Ajustes específicos para slick-carousel */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-prev::before, .slick-next::before {
+  color: #3498db;
+}
+
+.slick-dots li button::before {
+  color: #bdc3c7;
+}
+
+.slick-dots li.slick-active button::before {
+  color: #3498db;
 }

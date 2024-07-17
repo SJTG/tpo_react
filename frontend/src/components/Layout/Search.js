@@ -27,16 +27,14 @@ function Search() {
   };
 
   const handleMovieClick = (movieId) => {
-    setSearchTerm(''); // Clear the search field
-    setResults([]); // Clear the search results
     navigate(`/movieDetail/${movieId}`);
   };
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3, // Number of slides to show at a time
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
@@ -64,7 +62,8 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className="search-page">
+      <h2>Search for Movies</h2>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -75,17 +74,21 @@ function Search() {
         <button type="submit">Buscar</button>
       </form>
       <div className="results-container">
-        <Slider {...settings}>
-          {results.map(movie => (
-            <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
-              <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster" />
-              <div className="movie-info">
-                <h4>{movie.title}</h4>
-                <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
+        {results.length > 0 ? (
+          <Slider {...settings}>
+            {results.map(movie => (
+              <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster-search" />
+                <div className="movie-info">
+                  <h4>{movie.title}</h4>
+                  <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        ) : (
+          <p>No movies found.</p>
+        )}
       </div>
     </div>
   );

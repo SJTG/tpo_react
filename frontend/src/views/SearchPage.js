@@ -6,7 +6,6 @@ function SearchPage() {
   return (
     <div className="search-page-container">
       <main className="search-page-content">
-        <h1>Search for Movies</h1>
         <Search />
       </main>
     </div>

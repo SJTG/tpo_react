@@ -1,6 +1,6 @@
 // src/components/Movies/DetailsMovieDetail.js
 import React, { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext'; // Asegúrate de usar el path correcto al AuthContext
+import { AuthContext } from '../../contexts/AuthContext';
 import './DetailsMovieDetail.css'; 
 import AddToList from './AddToList';
 
@@ -10,7 +10,7 @@ function DetailsMovieDetail({ movie }) {
   return (
     <div className="card">
       <div className="poster-container">
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster" />
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster-detail" />
       </div>
       <div className="details-container">
         <h1>{movie.title}</h1>

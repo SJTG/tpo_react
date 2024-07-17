@@ -78,7 +78,7 @@ function MovieCarousel() {
 
   return (
     <div>
-      <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+      <select className="select-genre" value={genre} onChange={(e) => setGenre(e.target.value)}>
         <option value="All">All</option>
         <option value="28">Action</option>
         <option value="12">Adventure</option>
@@ -102,9 +102,9 @@ function MovieCarousel() {
       </select>
       <Slider {...settings}>
         {filteredMovies.map((movie) => (
-          <div key={movie.id} className="movie-card" onClick={() => handleMovieClick(movie.id)}>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image" />
-            <p className="movie-title">{movie.title}</p>
+          <div key={movie.id} className="movie-card-carousel" onClick={() => handleMovieClick(movie.id)}>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image-carousel" />
+            <p className="movie-title-carousel">{movie.title}</p>
           </div>
         ))}
       </Slider>
