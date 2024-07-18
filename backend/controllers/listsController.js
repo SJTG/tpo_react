@@ -1,4 +1,5 @@
-// controllers/listsController.js
+// Este archivo contiene los controladores para gestionar las listas de películas de los usuarios. Get, añadir y remover.
+
 const User = require('../models/User');
 const Movie = require('../models/Movie');
 

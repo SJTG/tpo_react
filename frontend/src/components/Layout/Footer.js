@@ -1,3 +1,5 @@
+// Este archivo define el componente footer
+
 import React from 'react';
 import './Footer.css';
 

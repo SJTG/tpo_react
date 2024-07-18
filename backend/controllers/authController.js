@@ -1,4 +1,6 @@
-// controllers/authController.js
+//Este archivo contiene los controladores para manejar las operaciones de autenticación de usuarios, incluyendo el registro y el inicio de sesión.
+//Utiliza un token JWT para la autenticación de usuarios, generado con la función `generateToken(id)` y firmado con una clave secreta.
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 

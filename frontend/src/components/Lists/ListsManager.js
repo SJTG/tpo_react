@@ -1,4 +1,6 @@
-// src/components/Layout/ListsManager.js
+// Este archivo define el componente ListsManager, que permite al usuario gestionar sus listas de películas. 
+// Los usuarios pueden ver sus listas, seleccionar películas para eliminar y cambiar entre diferentes listas.
+
 import React, { useState, useEffect } from 'react';
 import { useLists } from '../../contexts/ListContext';
 import { removeMovieFromList, getUserLists } from '../../services/api';

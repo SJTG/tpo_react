@@ -1,3 +1,6 @@
+//Este archivo configura y arranca el servidor Express, conecta la base de datos, y define las rutas de la aplicación. 
+//También establece la configuración de CORS y el manejo de JSON.
+
 const express = require('express');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');

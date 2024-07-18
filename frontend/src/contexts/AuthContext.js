@@ -1,4 +1,6 @@
-// src/contexts/AuthContext.js
+// Este archivo define el contexto de autenticación para la aplicación 
+// gestiona el estado de autenticación del usuario y proporciona funciones para iniciar sesión y cerrar sesión.
+
 import React, { createContext, useContext, useState } from 'react';
 
 export const AuthContext = createContext();

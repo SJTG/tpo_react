@@ -1,4 +1,7 @@
-// src/components/Auth/LoginForm.js
+// Este archivo define el componente LoginForm, que permite a los usuarios ingresar 
+// sus credenciales para iniciar sesión en la aplicación. AuthContext y
+// una función de servicio para gestionar el inicio de sesión.
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../contexts/AuthContext';

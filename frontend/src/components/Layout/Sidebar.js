@@ -1,3 +1,5 @@
+// Este archivo define el componente sidebar
+
 import React, { useState } from 'react';
 import './Sidebar.css'; 
 

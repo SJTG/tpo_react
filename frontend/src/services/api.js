@@ -1,4 +1,5 @@
-// src/services/api.js
+// Este archivo define las funciones para interactuar con el backend mediante solicitudes HTTP utilizando axios.
+
 import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api';

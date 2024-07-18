@@ -1,4 +1,5 @@
-// models/Movie.js
+// Este modelo define la estructura y los requisitos para los documentos de películas en la base de datos MongoDB usando Mongoose.
+
 const mongoose = require('mongoose');
 
 const MovieSchema = new mongoose.Schema({

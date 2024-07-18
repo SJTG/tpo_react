@@ -1,4 +1,6 @@
-// src/components/Auth/RegisterForm.js
+// Este archivo define el componente RegisterForm, que permite a los usuarios registrarse en la aplicación. 
+// El componente maneja el estado del formulario, realiza la validación de contraseñas y llama a una función de servicio para registrar al usuario.
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { registerUser } from '../../services/api'; // Asegúrate de que el path es correcto

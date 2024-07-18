@@ -1,4 +1,5 @@
-// backend/routes/users.js
+// Este archivo define las rutas para registrar un nuevo usuario e iniciar sesión en la aplicación. 
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');

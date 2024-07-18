@@ -1,4 +1,6 @@
-// src/contexts/ListContext.js
+// Este archivo define el contexto de listas para la aplicación
+// gestiona el estado de las listas de películas del usuario y proporciona acceso a ellas a través del contexto.
+
 import React, { createContext, useState, useContext } from 'react';
 
 const ListContext = createContext();

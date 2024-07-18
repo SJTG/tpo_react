@@ -1,4 +1,5 @@
-// backend/routes/movies.js
+//Este archivo define una ruta para obtener todas las películas almacenadas en la base de datos. 
+
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie');

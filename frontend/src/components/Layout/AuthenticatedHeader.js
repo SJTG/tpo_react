@@ -1,3 +1,5 @@
+// Este archivo define el componente AuthenticatedHeader, que representa la cabecera del sitio para los usuarios autenticados. 
+
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';

@@ -1,4 +1,6 @@
-// models/MovieList.js
+// Este modelo define la estructura 
+// y los requisitos para las listas de películas asociadas a un usuario en la base de datos
+
 const mongoose = require('mongoose');
 
 const MovieListSchema = new mongoose.Schema({

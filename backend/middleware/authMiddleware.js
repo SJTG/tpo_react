@@ -1,4 +1,6 @@
-// middleware/authMiddleware.js
+// Este archivo contiene el middleware para proteger las rutas que requieren autenticación.
+// El middleware verifica la presencia y validez del token JWT en las solicitudes entrantes.
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
