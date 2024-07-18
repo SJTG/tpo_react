@@ -1,5 +1,5 @@
-// controllers/authController.js
 const User = require('../models/User');
+const MovieList = require('../models/MovieList');
 const jwt = require('jsonwebtoken');
 
 const generateToken = (id) => {
@@ -14,11 +14,8 @@ exports.registerUser = async (req, res) => {
   try {
     const user = await User.create({ username, email, password });
 
-    // Crear listas base para el usuario
-    user.favoritas = [];
-    user.vistas = [];
-    user.porVer = [];
-    await user.save();
+    // Crear listas base para el usuario en la colección separada
+    await MovieList.create({ user: user._id, favoritas: [], vistas: [], porVer: [] });
 
     res.status(201).json({
       _id: user._id,

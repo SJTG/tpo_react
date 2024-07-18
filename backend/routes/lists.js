@@ -1,4 +1,3 @@
-// routes/lists.js
 const express = require('express');
 const { addMovieToList, getUserLists, removeMovieFromList } = require('../controllers/listsController');
 const { protect } = require('../middleware/authMiddleware');

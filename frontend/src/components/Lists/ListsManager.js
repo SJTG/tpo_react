@@ -44,7 +44,7 @@ function ListsManager() {
       setLists((prevLists) => ({
         ...prevLists,
         [currentList]: prevLists[currentList].filter(
-          (movie) => !selectedMovies.includes(movie._id)
+          (movie) => !selectedMovies.includes(movie.id)
         ),
       }));
       setSelectedMovies([]);
@@ -74,19 +74,21 @@ function ListsManager() {
       {lists[currentList] && lists[currentList].length > 0 ? (
         <ul>
           {lists[currentList].map(movie => (
-            <li key={movie._id} className="list-item">
-              <div className="movie-details">
-                <input
-                  type="checkbox"
-                  checked={selectedMovies.includes(movie._id)}
-                  onChange={() => handleSelectMovie(movie._id)}
-                />
-                <Link to={`/movieDetail/${movie.id}`} className="movie-title-link">
-                  {movie.title}
-                </Link>
-                <button onClick={() => handleSelectMovie(movie._id)}>Seleccionar</button>
-              </div>
-            </li>
+            movie && (
+              <li key={movie.id} className="list-item">
+                <div className="movie-details">
+                  <input
+                    type="checkbox"
+                    checked={selectedMovies.includes(movie.id)}
+                    onChange={() => handleSelectMovie(movie.id)}
+                  />
+                  <Link to={`/movieDetail/${movie.id}`} className="movie-title-link">
+                    {movie.title}
+                  </Link>
+                  <button onClick={() => handleSelectMovie(movie.id)}>Seleccionar</button>
+                </div>
+              </li>
+            )
           ))}
         </ul>
       ) : (

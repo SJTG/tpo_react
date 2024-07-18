@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -16,19 +15,7 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  favoritas: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Movie'
-  }],
-  vistas: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Movie'
-  }],
-  porVer: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Movie'
-  }]
+  }
 });
 
 UserSchema.pre('save', async function(next) {

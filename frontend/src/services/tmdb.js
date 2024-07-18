@@ -32,3 +32,17 @@ export const getMovieDetails = async (movieId) => {
     throw error;
   }
 };
+
+export const getMovies = async () => {
+  try {
+    const response = await axios.get(`${TMDB_BASE_URL}/discover/movie`, {
+      params: {
+        api_key: TMDB_API_KEY,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    throw error;
+  }
+};

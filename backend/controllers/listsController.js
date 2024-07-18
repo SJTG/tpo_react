@@ -1,15 +1,12 @@
-// controllers/listsController.js
-const User = require('../models/User');
-const Movie = require('../models/Movie');
+const MovieList = require('../models/MovieList');
 
 exports.getUserLists = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id).populate('favoritas vistas porVer');
-    res.json({
-      favoritas: user.favoritas,
-      vistas: user.vistas,
-      porVer: user.porVer
-    });
+    const movieList = await MovieList.findOne({ user: req.user._id });
+    if (!movieList) {
+      return res.status(404).json({ message: 'Lists not found' });
+    }
+    res.json(movieList);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -19,17 +16,20 @@ exports.addMovieToList = async (req, res) => {
   const { listType, movie } = req.body;
 
   try {
-    const user = await User.findById(req.user._id);
-
-    const movieDoc = await Movie.findById(movie._id);
-    if (!movieDoc) {
-      await Movie.create(movie);
+    const movieList = await MovieList.findOne({ user: req.user._id });
+    if (!movieList) {
+      return res.status(404).json({ message: 'Lists not found' });
     }
 
-    user[listType].push(movie._id);
-    await user.save();
+    // Check if the movie already exists in the list to avoid duplicates
+    if (movieList[listType].some(m => m.id === movie.id)) {
+      return res.status(400).json({ message: 'Movie already in the list' });
+    }
 
-    res.json(user[listType]);
+    movieList[listType].push(movie);
+    await movieList.save();
+
+    res.json(movieList[listType]);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -39,11 +39,15 @@ exports.removeMovieFromList = async (req, res) => {
   const { listType, movieId } = req.body;
 
   try {
-    const user = await User.findById(req.user._id);
-    user[listType] = user[listType].filter(movie => movie.toString() !== movieId);
-    await user.save();
+    const movieList = await MovieList.findOne({ user: req.user._id });
+    if (!movieList) {
+      return res.status(404).json({ message: 'Lists not found' });
+    }
 
-    res.json(user[listType]);
+    movieList[listType] = movieList[listType].filter(movie => movie.id !== movieId);
+    await movieList.save();
+
+    res.json(movieList[listType]);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

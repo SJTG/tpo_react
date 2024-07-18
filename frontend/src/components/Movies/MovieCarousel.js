@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { searchMovies } from '../../services/tmdb';
+import { getMovies } from '../../services/tmdb';
 import { useNavigate } from 'react-router-dom';
 import './MovieCarousel.css';
 
@@ -10,19 +10,19 @@ function MovieCarousel() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [genre, setGenre] = useState('All');
-  const [loading, setLoading] = useState(true); // Estado de carga
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const results = await searchMovies('');
+        const results = await getMovies();
         setMovies(results);
         setFilteredMovies(results);
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {
-        setLoading(false); // Datos cargados, establecer loading a false
+        setLoading(false);
       }
     };
     fetchMovies();
@@ -40,7 +40,7 @@ function MovieCarousel() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5, // Number of slides to show at a time
+    slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
       {
@@ -72,7 +72,7 @@ function MovieCarousel() {
   };
 
   if (loading) {
-    return <div>Loading...</div>; // Muestra un mensaje de carga mientras se obtienen los datos
+    return <div>Loading...</div>;
   }
 
   return (

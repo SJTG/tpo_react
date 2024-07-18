@@ -1,5 +1,24 @@
-// models/MovieList.js
 const mongoose = require('mongoose');
+
+const movieSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  poster_path: {
+    type: String,
+    required: true
+  },
+  overview: {
+    type: String,
+    required: true
+  },
+  genre_ids: [Number]
+});
 
 const MovieListSchema = new mongoose.Schema({
   user: {
@@ -7,27 +26,9 @@ const MovieListSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  favoritas: [{
-    id: Number,
-    title: String,
-    poster_path: String,
-    overview: String,
-    genre_ids: [Number]
-  }],
-  vistas: [{
-    id: Number,
-    title: String,
-    poster_path: String,
-    overview: String,
-    genre_ids: [Number]
-  }],
-  porVer: [{
-    id: Number,
-    title: String,
-    poster_path: String,
-    overview: String,
-    genre_ids: [Number]
-  }]
+  favoritas: [movieSchema],
+  vistas: [movieSchema],
+  porVer: [movieSchema]
 });
 
 const MovieList = mongoose.model('MovieList', MovieListSchema);
