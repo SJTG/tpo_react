@@ -1,4 +1,3 @@
-// src/components/Movies/MovieCarousel.js
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
@@ -35,7 +34,7 @@ function MovieCarousel() {
     } else {
       setFilteredMovies(movies.filter(movie => movie.genre_ids.includes(parseInt(genre))));
     }
-  }, [genre, movies]); // No incluir filteredMovies aquí
+  }, [genre, movies]);
 
   const settings = {
     dots: true,

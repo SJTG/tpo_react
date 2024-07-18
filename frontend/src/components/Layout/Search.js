@@ -1,4 +1,3 @@
-// src/components/Layout/Search.js
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
@@ -8,29 +7,29 @@ import "slick-carousel/slick/slick-theme.css";
 import './Search.css';
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [results, setResults] = useState([]);
-  const navigate = useNavigate();
+  const [uniqueSearchTerm, setUniqueSearchTerm] = useState('');
+  const [uniqueResults, setUniqueResults] = useState([]);
+  const uniqueNavigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
+  const handleUniqueInputChange = (event) => {
+    setUniqueSearchTerm(event.target.value);
   };
 
-  const handleSearch = async (event) => {
+  const handleUniqueSearch = async (event) => {
     event.preventDefault();
     try {
-      const results = await searchMovies(searchTerm);
-      setResults(results);
+      const results = await searchMovies(uniqueSearchTerm);
+      setUniqueResults(results);
     } catch (error) {
       console.error('Error searching movies:', error);
     }
   };
 
-  const handleMovieClick = (movieId) => {
-    navigate(`/movieDetail/${movieId}`);
+  const handleUniqueMovieClick = (movieId) => {
+    uniqueNavigate(`/movieDetail/${movieId}`);
   };
 
-  const settings = {
+  const uniqueSettings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -64,20 +63,20 @@ function Search() {
   return (
     <div className="search-page">
       <h2>Search for Movies</h2>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleUniqueSearch}>
         <input
           type="text"
           placeholder="Buscar películas..."
-          value={searchTerm}
-          onChange={handleInputChange}
+          value={uniqueSearchTerm}
+          onChange={handleUniqueInputChange}
         />
         <button type="submit">Buscar</button>
       </form>
       <div className="results-container">
-        {results.length > 0 ? (
-          <Slider {...settings}>
-            {results.map(movie => (
-              <div key={movie.id} className="movie-result" onClick={() => handleMovieClick(movie.id)}>
+        {uniqueResults.length > 0 ? (
+          <Slider {...uniqueSettings}>
+            {uniqueResults.map(movie => (
+              <div key={movie.id} className="movie-result" onClick={() => handleUniqueMovieClick(movie.id)}>
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster-search" />
                 <div className="movie-info">
                   <h4>{movie.title}</h4>
