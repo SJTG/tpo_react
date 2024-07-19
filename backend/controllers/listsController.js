@@ -1,3 +1,4 @@
+// controllers/listsController.js
 const MovieList = require('../models/MovieList');
 
 exports.getUserLists = async (req, res) => {

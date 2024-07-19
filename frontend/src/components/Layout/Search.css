@@ -39,12 +39,13 @@
 
 .results-container {
   margin-top: 20px;
+
 }
 
 .movie-result {
   cursor: pointer;
   padding: 10px; 
-  background-color: #fff;
+  background-color: #ffffff00;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -61,8 +62,9 @@
 }
 
 .movie-poster-search {
-  width: 100%;
+  width: 320px;
   height: auto;
+  align-items: center;
   border-radius: 5px;
   flex-grow: 1;
 }

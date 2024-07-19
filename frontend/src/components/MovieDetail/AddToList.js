@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import './AddToList.css';
 
 function AddToList({ movie }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const { lists, setLists } = useLists();
   const [selectedList, setSelectedList] = useState('');
   const navigate = useNavigate();

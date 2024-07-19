@@ -80,7 +80,7 @@ function Search() {
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-poster-search" />
                 <div className="movie-info">
                   <h4>{movie.title}</h4>
-                  <p>{movie.genre_ids && movie.genre_ids.join(', ')}</p>
+
                 </div>
               </div>
             ))}
