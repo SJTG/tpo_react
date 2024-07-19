@@ -43,7 +43,7 @@ export const getMovieDetails = async (movieId) => {
 
 export const getMovies = async () => {
   try {
-    const response = await axios.get(`${TMDB_BASE_URL}/discover/movie`, {
+    const response = await axios.get(`${TMDB_BASE_URL}/trending/movie/week`, {
       params: {
         api_key: TMDB_API_KEY,
       },
