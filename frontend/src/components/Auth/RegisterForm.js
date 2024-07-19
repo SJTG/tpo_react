@@ -1,8 +1,7 @@
-// src/components/Auth/RegisterForm.js
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { registerUser } from '../../services/api'; // Asegúrate de que el path es correcto
-import './RegisterForm.css'; // Crea un archivo CSS para los estilos
+import { registerUser } from '../../services/api'; 
+import './RegisterForm.css'; 
 
 function RegisterForm({ onRegister }) {
   const [username, setUsername] = useState('');
@@ -24,13 +23,13 @@ function RegisterForm({ onRegister }) {
       console.log('Registro exitoso', response);
       localStorage.setItem('token', response.token); 
       onRegister(response.token);
-      setError(''); // Clear any previous errors
+      setError(''); 
     } catch (error) {
       console.error('Error en el registro', error);
       if (error.response && error.response.data) {
-        setError(error.response.data.message); // Set specific error message
+        setError(error.response.data.message); 
       } else {
-        setError('Error, please try again.'); // Set a generic error message
+        setError('Error, please try again.'); 
       }
     }
   };

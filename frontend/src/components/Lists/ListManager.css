@@ -1,8 +1,7 @@
-/* src/components/Layout/ListsManager.css */
 .listsPage {
   max-width: 600px;
   height: 600px;
-  background-color: #ecf0f1; /* Updated to Fondo Claro */
+  background-color: #ecf0f1; 
   margin: 10px auto;
   padding: 20px;
   border-radius: 10px;
@@ -43,7 +42,7 @@
 }
 
 button {
-  background-color: #3498db; /* Updated to primary color */
+  background-color: #3498db; 
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -53,7 +52,7 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9; /* Hover state for primary button */
+  background-color: #2980b9; 
 }
 
 ul {
@@ -73,7 +72,7 @@ li {
 
 .movie-title-link {
   margin-right: 10px;
-  color: #2c3e50; /* Updated to Texto Primario */
+  color: #2c3e50; 
   text-decoration: none;
 }
 

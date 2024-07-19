@@ -1,4 +1,3 @@
-// src/views/MovieDetail.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DetailsMovieDetail from '../components/MovieDetail/DetailsMovieDetail'; 
@@ -9,11 +8,11 @@ function MovieDetailPage() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    console.log('Fetching details for movieId:', movieId); // Agregar este console.log
+    console.log('Fetching details for movieId:', movieId); 
     const fetchMovieDetails = async () => {
       try {
         const movieData = await getMovieDetails(movieId);
-        console.log('Movie data fetched:', movieData); // Verificar los datos obtenidos
+        console.log('Movie data fetched:', movieData); 
         setMovie(movieData);
       } catch (error) {
         console.error('Error fetching movie details:', error);

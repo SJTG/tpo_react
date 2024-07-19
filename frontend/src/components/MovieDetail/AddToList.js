@@ -1,4 +1,3 @@
-// src/components/MovieDetail/AddToList.js
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLists } from '../../contexts/ListContext';
@@ -28,7 +27,7 @@ function AddToList({ movie }) {
   };
 
   const handleBack = () => {
-    navigate(-1); // Navegar a la última página visitada
+    navigate(-1); 
   };
 
   return (

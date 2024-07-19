@@ -1,5 +1,5 @@
 .header {
-  background-color: #34495e; /* Updated to Fondo Oscuro */
+  background-color: #34495e; 
   width: 100%;
   padding: 20px;
   display: flex;
@@ -25,7 +25,7 @@
 }
 
 .header-nav li a {
-  color: #ecf0f1; /* Updated to Texto Primario */
+  color: #ecf0f1; 
   text-decoration: none;
   font-weight: bold;
 }

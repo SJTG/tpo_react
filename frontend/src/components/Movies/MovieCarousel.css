@@ -1,4 +1,3 @@
-/* src/components/Movies/MovieCarousel.css */
 .movie-card-carousel {
   width: 100px;
   height: 450px;
@@ -57,7 +56,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: relative;
-  left: 100px; /* Positioned 100px from the left border */
+  left: 100px;
 }
 
 .select-genre:hover {

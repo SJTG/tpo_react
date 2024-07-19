@@ -1,4 +1,3 @@
-// src/components/Auth/LoginForm.js
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../contexts/AuthContext';
@@ -24,9 +23,9 @@ function LoginForm({ onLogin }) {
     } catch (error) {
       console.error('Login failed', error);
       if (error.response && error.response.data) {
-        setError(error.response.data.message); // Set specific error message
+        setError(error.response.data.message); 
       } else {
-        setError('Login failed. Please try again.'); // Set a generic error message
+        setError('Login failed. Please try again.'); 
       }
     }
   };

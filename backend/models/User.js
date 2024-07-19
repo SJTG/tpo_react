@@ -1,3 +1,6 @@
+// Este modelo define la estructura y los requisitos para los documentos de usuario en la base de datos
+// También incluye métodos para el manejo de contraseñas.
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 

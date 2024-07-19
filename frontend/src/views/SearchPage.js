@@ -1,6 +1,5 @@
-// src/views/SearchPage.js
 import React from 'react';
-import Search from '../components/Layout/Search'; // Ruta corregida para el componente Search
+import Search from '../components/Layout/Search'; 
 
 function SearchPage() {
   return (

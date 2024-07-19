@@ -1,3 +1,5 @@
+// Este archivo define las funciones para interactuar con la API de The Movie Database (TMDB) utilizando axios para realizar solicitudes HTTP.
+
 import axios from 'axios';
 
 const TMDB_API_KEY = 'da558536b1d1ca3fbfb73ba736f43331';

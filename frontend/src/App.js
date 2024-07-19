@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import { AuthProvider } from './contexts/AuthContext';
@@ -10,7 +9,7 @@ import RegisterPage from './views/RegisterPage';
 import ListsPage from './views/ListsPage';
 import Footer from './components/Layout/Footer';
 import MovieDetailPage from './views/MovieDetailPage';
-import SearchPage from './views/SearchPage'; // Importar la nueva página de búsqueda
+import SearchPage from './views/SearchPage'; 
 
 function App() {
   const handleRegister = (token) => {

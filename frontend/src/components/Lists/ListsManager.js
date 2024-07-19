@@ -1,4 +1,3 @@
-// src/components/Layout/ListsManager.js
 import React, { useState, useEffect } from 'react';
 import { useLists } from '../../contexts/ListContext';
 import { removeMovieFromList, getUserLists } from '../../services/api';
@@ -59,7 +58,7 @@ function ListsManager() {
   };
 
   const handleBack = () => {
-    navigate('/'); // Navegar a la página principal
+    navigate('/'); 
   };
 
   return (

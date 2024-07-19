@@ -1,15 +1,14 @@
-/* src/components/Movies/DetailsMovieDetail.css */
 .card {
   display: flex;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted to be less intense */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
   margin: auto;
   margin-top: 30px;
-  width: 80%; /* Adjusted to be more responsive */
-  max-width: 1500px; /* Max width to ensure responsiveness */
-  height: auto; /* Adjust height to fit content */
+  width: 80%;
+  max-width: 1500px;
+  height: auto; 
 }
 
 .poster-container {
