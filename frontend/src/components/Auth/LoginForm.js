@@ -17,6 +17,7 @@ function LoginForm({ onLogin }) {
     try {
       const response = await loginUser({ email: username, password });
       console.log('Login successful', response);
+      localStorage.setItem('token2', response.token); 
       login(response.token);
       onLogin(response.token);
       setError(''); // Clear any previous errors

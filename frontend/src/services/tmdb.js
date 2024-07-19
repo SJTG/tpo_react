@@ -5,14 +5,20 @@ const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
 export const searchMovies = async (query, page = 1) => {
   try {
-    const response = await axios.get(`${TMDB_BASE_URL}/search/movie`, {
+    const response = await axios.get(`${TMDB_BASE_URL}/search/multi`, {
       params: {
         api_key: TMDB_API_KEY,
         query: query,
         page: page,
       },
     });
-    return response.data.results;
+    let combinedResults = response.data.results;
+    if (combinedResults.length >= 1){
+      if (response.data.results[0].media_type == "person") {
+          combinedResults = [...response.data.results[0].known_for, ...response.data.results.slice(1)];
+      }
+    }
+    return combinedResults;
   } catch (error) {
     console.error('Error searching movies:', error);
     throw error;

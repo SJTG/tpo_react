@@ -17,6 +17,7 @@ function AddToList({ movie }) {
     if (selectedList && movie && isAuthenticated) {
       try {
         const token = localStorage.getItem('token');
+        console.log('token', token);
         const updatedLists = await addMovieToList({ listType: selectedList, movie }, token);
         setLists(prevLists => ({ ...prevLists, [selectedList]: updatedLists }));
         alert(`Movie added to ${selectedList}`);

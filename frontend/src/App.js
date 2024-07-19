@@ -14,6 +14,7 @@ import SearchPage from './views/SearchPage'; // Importar la nueva página de bú
 
 function App() {
   const handleRegister = (token) => {
+    console.log('tokenapp', token)
     localStorage.setItem('token', token);
     window.location.href = '/';
   };

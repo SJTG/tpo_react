@@ -22,6 +22,7 @@ function RegisterForm({ onRegister }) {
     try {
       const response = await registerUser({ username, email, password });
       console.log('Registro exitoso', response);
+      localStorage.setItem('token', response.token); 
       onRegister(response.token);
       setError(''); // Clear any previous errors
     } catch (error) {

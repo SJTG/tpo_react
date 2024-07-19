@@ -7,8 +7,8 @@ function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate(); // Crea una instancia de useNavigate
 
-  const handleLoginSuccess = () => {
-    login();       // Llama a la función login del contexto de autenticación
+  const handleLoginSuccess = (token) => {
+    login(token, );       // Llama a la función login del contexto de autenticación
     navigate('/'); // Redirige al usuario a la página principal
   };
 
@@ -16,7 +16,8 @@ function LoginPage() {
     <div className="site-content">
       <LoginForm onLogin={success => {
         if (success) {
-          handleLoginSuccess(); // Llama a la función que maneja el éxito del login
+          console.log(success)
+          handleLoginSuccess(success); // Llama a la función que maneja el éxito del login
         } else {
           alert('Failed to login!'); // Manejo del caso de fallo
         }
